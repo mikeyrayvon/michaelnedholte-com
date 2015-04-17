@@ -18,7 +18,7 @@ if( have_posts() ) {
     <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
       <a href="<?php the_permalink() ?>">
         <h2><?php the_title(); ?></h2>
-        <span class="date">
+        <span>
           <?php echo get_the_date('F, Y'); ?>
         </span>
       </a>
