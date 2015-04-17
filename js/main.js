@@ -12,6 +12,7 @@ var
 	parentId,
 	href,
 	posts,
+	crumb,
 	animateSpeed = 400,
 	headHeight = $('#header h1').outerHeight(),
 	margin = 20,
@@ -24,6 +25,7 @@ var animateAutoHeight = function() {
 		//set new auto height to static height
 		headHeight = $header.outerHeight();
 		$header.css('height',headHeight);
+		$('#breadcrumbs').addClass('hide');
 	});
 };
 
@@ -34,6 +36,7 @@ $header.css('height', initHeight+'px')
 	},
 	function() {
 		$header.stop().animate({height: initHeight}, animateSpeed);
+		$('#breadcrumbs').removeClass('hide');
 	}
 );
 
@@ -41,11 +44,14 @@ $mainContent.css('margin-top', initHeight);
 
 
 // NAV
-$('.first-level.parent').on('click',function() {
+$('.first-level.parent').on('click', function() {
 	$('.parent').removeClass('nav-selected');
 	$('.second-level.menu, .third-level.menu').addClass('nav-hide');
 
 	$(this).addClass('nav-selected');
+
+	crumb = $(this).text();
+	$('#breadcrumbs').html('<span class="first-crumb crumb">'+crumb+'</span>');
 	
 	parentId = $(this).attr('data-id');
 	$('[data-parent="'+parentId+'"]').removeClass('nav-hide');
@@ -53,17 +59,28 @@ $('.first-level.parent').on('click',function() {
 	animateAutoHeight();
 });
 
-$('.second-level.parent').on('click',function() {
+$('.second-level.parent').on('click', function() {
 	$('.second-level.parent').removeClass('nav-selected');
 	$('.third-level.menu').addClass('nav-hide');
 
 	$(this).addClass('nav-selected');
+
+	$('.second-crumb, .third-crumb').remove();
+	crumb = $(this).text();
+	$('#breadcrumbs').append('<span class="second-crumb crumb">&rarr;'+crumb+'</span>');
 	
 	parentId = $(this).attr('data-id');
 	$('[data-parent="'+parentId+'"]').removeClass('nav-hide');
 
 	animateAutoHeight();
 });
+
+$('.third-level .menu-item .crumb').on('click', function() {
+	$('.third-crumb').remove();
+	crumb = $(this).text();
+	$('#breadcrumbs').append('<span class="third-crumb crumb">&rarr;'+crumb+'</span>');
+});
+
 
 
 //AJAX
@@ -78,11 +95,11 @@ $('body').on('click', '.js-ajax-item', function(e) {
 	
 	$('#main-container').addClass('loading');
  
-	history.pushState(null,null,href);
+	history.pushState(null,blogName,href);
 
 	$mainContent.animate({'opacity':0}, animateSpeed, function(data) {
 		$('html, body').animate({ scrollTop: '0px' }, animateSpeed/2);
-		
+
 		$.ajax({
 			url: href,
 			success: function(data) {
