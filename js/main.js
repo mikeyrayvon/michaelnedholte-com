@@ -25,7 +25,6 @@ var animateAutoHeight = function() {
 		//set new auto height to static height
 		headHeight = $header.outerHeight();
 		$header.css('height',headHeight);
-		$('#breadcrumbs').addClass('hide');
 	});
 };
 
@@ -36,7 +35,6 @@ $header.css('height', initHeight+'px')
 	},
 	function() {
 		$header.stop().animate({height: initHeight}, animateSpeed);
-		$('#breadcrumbs').removeClass('hide');
 	}
 );
 
@@ -47,6 +45,8 @@ $mainContent.css('margin-top', initHeight);
 $('.first-level.parent').on('click', function() {
 	$('.parent').removeClass('nav-selected');
 	$('.second-level.menu, .third-level.menu').addClass('nav-hide');
+
+	$('#breadcrumbs').addClass('hide');
 
 	$(this).addClass('nav-selected');
 
@@ -64,6 +64,8 @@ $('.second-level.parent').on('click', function() {
 	$('.third-level.menu').addClass('nav-hide');
 
 	$(this).addClass('nav-selected');
+
+	$('#breadcrumbs').addClass('hide');
 
 	$('.second-crumb, .third-crumb').remove();
 	crumb = $(this).text();
@@ -91,6 +93,16 @@ $('body').on('click', '.js-ajax-item', function(e) {
 		$('.js-ajax-item').removeClass('nav-selected');
 		$(this).addClass('nav-selected');
 		$header.stop().animate({height: initHeight}, animateSpeed);
+		$('#breadcrumbs').removeClass('hide');
+	}
+
+	if ($(this).hasClass('all')) {
+		$('.second-level.parent').removeClass('nav-selected');
+		$('.third-level.menu').addClass('nav-hide');
+		$(this).addClass('nav-selected');
+		$('.second-crumb, .third-crumb').remove();
+		crumb = $(this).text();
+		$('#breadcrumbs').append('<span class="second-crumb crumb">&rarr;'+crumb+'</span>');
 	}
 	
 	$('#main-container').addClass('loading');
