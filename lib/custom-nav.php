@@ -34,7 +34,7 @@ function get_custom_nav(){
 		foreach ( $first_level_categories as $first_level_category ) {
 			$first_level_div .= "<li class='menu-item'><a class='first-level crumb parent' data-id='" . $first_level_category->term_id . "'>" . $first_level_category->name . "</a></li>";
 			$second_level_categories = get_terms( 'category', array(
-				'orderby'    => 'id',
+				'orderby'    => 'name',
 				'hide_empty' => 0,
 				'parent' => $first_level_category->term_id,
 			) );
@@ -43,7 +43,7 @@ function get_custom_nav(){
 				foreach ( $second_level_categories as $second_level_category ) {
 					$second_level_div[$first_level_category->term_id] .= "<li class='menu-item'><a class='second-level crumb parent' data-id='" . $second_level_category->term_id . "'>" . $second_level_category->name . "</a></li>";
 					$third_level_categories = get_terms( 'category', array(
-						'orderby'    => 'id',
+						'orderby'    => 'name',
 						'hide_empty' => 0,
 						'parent' => $second_level_category->term_id,
 					) );
