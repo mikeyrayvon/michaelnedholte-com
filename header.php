@@ -3,7 +3,7 @@
 <head>
   <meta charset="<?php bloginfo('charset'); ?>">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title><?php wp_title('|',true,'right'); bloginfo('name'); ?></title>
+  <title><?php bloginfo('name'); ?></title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <?php get_template_part('partials/seo'); ?>
@@ -25,6 +25,8 @@
         nope: "<?php bloginfo('stylesheet_directory'); ?>/js/polyfills/mediaqueries.js"
       }
     ]);
+
+    var blogName = '<?php bloginfo('name'); ?>';
   </script>
 
   <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
@@ -38,8 +40,6 @@
   <!-- start content -->
   <header id="header">
     <h1 id="site-title"><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
-    <div id="breadcrumbs">
-      &rarr;
-    </div>
+    <div id="breadcrumbs"></div>
     <?php get_custom_nav(); ?>
   </header>
