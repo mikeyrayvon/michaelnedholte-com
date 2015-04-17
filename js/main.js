@@ -142,6 +142,14 @@ $('.second-level.crumb').on('click', function(data) {
 });
 
 
+$('.third-level.crumb').on('click', function(data) {
+
+	$('.third-level.crumb').removeClass('nav-selected');
+	$(this).addClass('nav-selected');
+
+});
+
+
 
 
 
@@ -151,7 +159,6 @@ $('body').on('click', '.js-ajax-item', function(data) {
 	href = $(this).attr('href');
 	$thisParent = $(this).parent();
 
-	
 	$crumb.removeClass('current');
 	$('.nav-selected').addClass('current');
 	$(this).addClass('nav-selected').addClass('current');
@@ -182,6 +189,7 @@ $('body').on('click', '.js-ajax-item', function(data) {
 		Router.loadHref(href);
 		return false;
 	} 
+
 });
 
 if (jQuery.browser.mobile === false) {
