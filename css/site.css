@@ -822,6 +822,11 @@ img {
 #pagination {
   width: 100%;
 }
+#result {
+  width: 600px;
+  border: 1px solid #0e0e0e;
+  background-color: #fdfdfd;
+}
 #footer {
   width: 100%;
 }
