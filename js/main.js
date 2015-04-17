@@ -61,7 +61,7 @@ var closeNav = function() {
 
 $header.css('height', initHeight+'px');
 
-$header.hover(
+$header.hoverIntent(
 	function() {
 		openNav();
 	},
@@ -162,6 +162,11 @@ $('body').on('click', '.js-ajax-item', function(data) {
 	$crumb.removeClass('current');
 	$('.nav-selected').addClass('current');
 	$(this).addClass('nav-selected').addClass('current');
+
+	if ($(this).hasClass('second-level')) {
+		$('.third-level.crumb').removeClass('nav-selected').removeClass('current');
+	}
+
 
 //BREADCRUMBS
 	if ($(this).hasClass('first-level')) {
