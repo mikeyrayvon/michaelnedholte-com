@@ -55,11 +55,11 @@ p
   
 em 
   font-family: $font-miller-It
-  font-style: italic
+  font-style: normal
   
 strong 
   font-family: $font-miller-Bld
-  font-weight: 600
+  font-weight: normal
   
 em strong, strong em 
   font-family: $font-miller-BldIt
@@ -135,7 +135,7 @@ img
   opacity: 0
   
 .nav-selected
-  color: blue
+  color: blue !important
   
 #site-title, .menu
   padding-bottom: $margin-small
@@ -148,7 +148,9 @@ img
   max-width: 1200px
   display: block
   margin-left: auto
-  margin-right: auto 
+  margin-right: auto  
+  
+#main-container
   &.loading:before
     content: ''
     width: 100%
@@ -161,8 +163,8 @@ img
     background-position: center
     z-index: 100
   
-.archive
-  .post
+#posts.archive
+  article.post
     width: 100%
     a
       display: block
@@ -175,7 +177,7 @@ img
       text-align: right
     
 
-.post 
+article.post, article.page
   width: 600px
   margin: 0 auto   
   padding: $margin-large 0 $margin-basic
@@ -193,8 +195,6 @@ img
     border-bottom: 1px solid $color-black-soft
     font-family: $font-ag-lRg
     
-  
-
 
 #pagination
   width: 100%
