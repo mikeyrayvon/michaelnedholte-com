@@ -223,6 +223,15 @@ if (jQuery.browser.mobile === false) {
 
 
 
+//RESIZE
+$(window).on('resize', function() {
+	headHeight = $('#header h1').outerHeight();
+	initHeight = headHeight+margin;
+	$header.css('height', initHeight+'px');
+});
+
+
+
 jQuery(document).ready(function () {
   'use strict';
   l('Hola Globie');
