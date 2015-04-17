@@ -19,7 +19,7 @@ if( have_posts() ) {
 
       <h1><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h1>
 
-      <span class="date"><?php echo get_the_date(); ?></span>
+      <span class="date"><?php echo get_the_date('F, Y'); ?></span>
 
       <?php the_content(); ?>
 
