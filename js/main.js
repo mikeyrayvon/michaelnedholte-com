@@ -15,6 +15,8 @@ var
 	margin = 20,
 	initHeight = headHeight+margin;
 
+
+// HEADER
 var animateAutoHeight = function() {
 	$header.animateAuto(animateSpeed, function() {
 		//set new auto height to static height
@@ -35,6 +37,8 @@ $header.css('height', initHeight+'px')
 
 $mainContent.css('margin-top', initHeight);
 
+
+// NAV
 
 $('.first-level.parent').on('click',function() {
 	$('.parent').removeClass('nav-selected');
@@ -59,6 +63,8 @@ $('.second-level.parent').on('click',function() {
 
 	animateAutoHeight();
 });
+
+
 
 jQuery(document).ready(function () {
   'use strict';
