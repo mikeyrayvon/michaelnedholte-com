@@ -10,6 +10,8 @@ var
 	$header = $('#header'),
 	$mainContent = $('#main-content'),
 	parentId,
+	href,
+	posts,
 	animateSpeed = 400,
 	headHeight = $('#header h1').outerHeight(),
 	margin = 20,
@@ -39,7 +41,6 @@ $mainContent.css('margin-top', initHeight);
 
 
 // NAV
-
 $('.first-level.parent').on('click',function() {
 	$('.parent').removeClass('nav-selected');
 	$('.second-level.menu, .third-level.menu').addClass('nav-hide');
@@ -64,6 +65,39 @@ $('.second-level.parent').on('click',function() {
 	animateAutoHeight();
 });
 
+
+//AJAX
+$('body').on('click', '.js-ajax-item', function(e) {
+	href = $(this).attr('href');
+
+	if ($(this).hasClass('js-menu-item')) {
+		$('.js-ajax-item').removeClass('nav-selected');
+		$(this).addClass('nav-selected');
+		$header.stop().animate({height: initHeight}, animateSpeed);
+	}
+	
+	$('#main-container').addClass('loading');
+ 
+	history.pushState(null,null,href);
+
+	$mainContent.animate({'opacity':0}, animateSpeed, function(data) {
+		$('html, body').animate({ scrollTop: '0px' }, animateSpeed/2);
+		
+		$.ajax({
+			url: href,
+			success: function(data) {
+				posts = $(data).find('#posts');
+				console.log(posts);
+				$mainContent.html(posts);
+			}
+		}).done(function() {
+			$mainContent.animate({'opacity':1}, animateSpeed, function() {
+				$('#main-container').removeClass('loading');
+			});
+		});
+	});
+	return false;
+});
 
 
 jQuery(document).ready(function () {
