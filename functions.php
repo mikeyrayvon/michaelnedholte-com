@@ -6,14 +6,14 @@ function scripts_and_styles_method() {
   // library.js is to bundle plugins. my.js is your scripts. enqueue more files as needed
   $jslib = $templateuri."library.js";
   wp_enqueue_script( 'jslib', $jslib,'','',true);
-  $myscripts = $templateuri."main.js";
+  $myscripts = $templateuri."main.min.js";
   wp_enqueue_script( 'myscripts', $myscripts,'','',true);
   wp_localize_script( 'myscripts', 'WP', array(
     'blogName' => get_bloginfo('name')
   ));
 
   // enqueue stylesheet here. file does not exist until stylus file is processed
-  wp_enqueue_style( 'site', get_stylesheet_directory_uri() . '/css/site.css' );
+  wp_enqueue_style( 'site', get_stylesheet_directory_uri() . '/css/site.min.css' );
 
   // dashicons for admin
   if(is_admin()){
