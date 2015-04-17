@@ -102,22 +102,22 @@ img
   font-size: 1.5em
   line-height: 1.2em
   overflow: hidden
+  -webkit-backface-visibility: hidden 
   
 #site-title
   display: inline-block
-  -webkit-backface-visibility: hidden 
     
 #breadcrumbs
   margin-left: $margin-small
   display: inline-block
-  opacity: 1
-  &.hide 
-    opacity: 0
-  
-.menu
-  display: block 
-  opacity: 1
   transition: opacity 1s
+  opacity: 1
+
+.hide 
+  opacity: 0 !important
+  
+.nav-hide
+  display: none
 
 .menu-item
   display: inline-block
@@ -134,16 +134,19 @@ img
 .first-level, .second-level, .third-level
   .menu-item:last-child:after
     content: ''
-
-.nav-hide
-  display: none
-  opacity: 0
   
 .nav-selected
   color: blue !important
   
 #site-title, .menu
   padding-bottom: $margin-small
+  
+#toggle
+  position: absolute
+  top: $margin-basic
+  right: $margin-basic
+  transition: opacity 1s
+  display: none
   
 
 // POSTS LOOP
@@ -180,7 +183,6 @@ img
     span
       float: right
       text-align: right
-    
 
 article.post, article.page
   width: 600px
@@ -199,6 +201,15 @@ article.post, article.page
     padding-bottom: 1em
     border-bottom: 1px solid $color-black-soft
     font-family: $font-ag-lRg
+  p 
+    a,a:active,a:visited
+      color: blue
+      
+article.category-news 
+  h2 
+    margin-bottom: $margin-small
+  .date 
+    border-bottom: 0
     
 
 #pagination
@@ -224,8 +235,35 @@ article.post, article.page
 
 // MEDIA QUERIES
 
-/*
-@media screen and (max-width: ($col * $cols)+($gutter * $cols))
-  html
+@media screen and (max-width: 1250px)
+  #posts.archive
+    article.post
+      span
+        display: none
+        
+@media screen and (max-width: 900px)
+  #breadcrumbs
+    display: none
+
+@media screen and (max-width: 650px)
+  #main-content
     width: 100%
-*/
+    padding-left: $margin-basic 
+    padding-right: $margin-basic 
+  article.post, article.page
+    width: 100%
+    
+@media screen and (max-width: 600px)
+  $font-size-basic = 14px
+  #header
+    font-size: 1.7em
+  body
+    font-size: $font-size-basic
+    
+@media screen and (max-width: 480px)
+  $font-size-basic = 12px
+  body
+    font-size: $font-size-basic
+    
+
+
