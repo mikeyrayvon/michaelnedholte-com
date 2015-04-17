@@ -791,6 +791,7 @@ img {
   line-height: 1.2em;
   overflow: hidden;
   -webkit-backface-visibility: hidden;
+  z-index: 9999;
 }
 #site-title {
   display: inline-block;
