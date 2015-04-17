@@ -13,7 +13,17 @@ get_header();
 if( have_posts() ) {
   while( have_posts() ) {
     the_post();
+
+  $category = get_the_category(); 
+  $category_slug = $category[0]->slug;
+  $category_name = $category[0]->name;
+
+  if ($category_slug === 'news') { 
 ?>
+    <script type="text/javascript">
+      var parents = '<?php echo $category_name ?>';
+    </script>
+<?php } ?>
 
     <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
