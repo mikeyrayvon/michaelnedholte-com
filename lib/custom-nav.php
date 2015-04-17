@@ -17,6 +17,7 @@ function get_custom_nav(){
 		'items_wrap' => '%3$s',
 	);
 	$pages = wp_nav_menu($options);
+	$pages = preg_replace('/<a/', '<a class="js-ajax-item first-level"', $pages);
 
 
 	$newsCatObj = get_category_by_slug( 'news' );
