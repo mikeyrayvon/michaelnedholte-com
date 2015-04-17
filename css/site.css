@@ -796,6 +796,7 @@ img {
   -webkit-backface-visibility: hidden;
 }
 #breadcrumbs {
+  margin-left: 8px;
   display: inline-block;
   opacity: 1;
 }

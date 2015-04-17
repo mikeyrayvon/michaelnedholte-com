@@ -56,7 +56,7 @@ function get_custom_nav(){
 					}
 					
 				}
-				$second_level_div[$first_level_category->term_id] .= '<li class="menu-item"><a href="' . get_term_link( $first_level_category->slug, $first_level_category->taxonomy ) . '" class="js-ajax-item js-menu-item crumb all" data-id="' . $first_level_category->term_id . '">All</a></li>';
+				$second_level_div[$first_level_category->term_id] .= '<li class="menu-item"><a href="' . get_term_link( $first_level_category->slug, $first_level_category->taxonomy ) . '" class="js-ajax-item js-menu-item second-level crumb all" data-id="' . $first_level_category->term_id . '">All</a></li>';
 				$second_level_div[$first_level_category->term_id] .= "</ul>";
 			}
 		}

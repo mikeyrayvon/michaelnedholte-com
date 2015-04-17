@@ -60,7 +60,7 @@ $('.first-level.parent').on('click', function() {
 });
 
 $('.second-level.parent').on('click', function() {
-	$('.second-level.parent').removeClass('nav-selected');
+	$('.second-level.parent, .second-level.all').removeClass('nav-selected');
 	$('.third-level.menu').addClass('nav-hide');
 
 	$(this).addClass('nav-selected');
