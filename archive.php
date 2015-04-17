@@ -7,7 +7,7 @@ get_header();
 <main id="main-content">
 
   <!-- main posts loop -->
-  <section id="posts">
+  <section id="posts" class="archive">
 
 <?php
 if( have_posts() ) {
@@ -16,7 +16,7 @@ if( have_posts() ) {
 ?>
 
     <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
-      <a href="<?php the_permalink() ?>">
+      <a href="<?php the_permalink() ?>" class="js-ajax-item">
         <h2><?php the_title(); ?></h2>
         <span>
           <?php echo get_the_date('F, Y'); ?>
