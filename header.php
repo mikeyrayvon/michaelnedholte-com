@@ -41,38 +41,4 @@
     <div id="breadcrumbs">
     </div>
     <?php get_custom_nav(); ?>
-    <!--nav id="main-nav">
-      <?php    /*
-
-        $args = array(
-          'theme_location' => 'menu_top',
-          'menu' => '',
-          'container' => '',
-          'container_class' => '',
-          'container_id' => '',
-          'menu_class' => 'menu',
-          'menu_id' => '',
-          'echo' => true,
-          'fallback_cb' => 'wp_page_menu',
-          'before' => '',
-          'after' => '',
-          'link_before' => '',
-          'link_after' => '',
-          'items_wrap' => '<ul id = "%1$s" class = "%2$s">%3$s</ul>',
-          'depth' => 0,
-          'walker' => ''
-        );
-      
-        wp_nav_menu( $args );*/
-      ?>
-    </nav>
-    <nav id="sub-nav-first">
-
-    </nav>
-    <nav id="sub-nav-second">
-
-    </nav>
-    <nav id="sub-nav-third">
-
-    </nav!-->
   </header>
