@@ -32,16 +32,22 @@ if( function_exists( 'add_image_size' ) ) {
 }
 
 // Register Nav Menus
-/*
-register_nav_menus( array(
-	'menu_location' => 'Location Name',
-) );
-*/
 
-get_template_part( 'lib/gallery' );
-get_template_part( 'lib/post-types' );
-get_template_part( 'lib/meta-boxes' );
-get_template_part( 'lib/theme-options' );
+register_nav_menus( array(
+	'menu_pages' => 'Pages',
+) );
+
+add_filter( 'wp_nav_menu_items', 'prefix_remove_menu_item_whitespace' );
+function prefix_remove_menu_item_whitespace( $items ) {
+    return preg_replace( '/>(\s|\n|\r)+</', '><', $items );
+}
+
+
+//get_template_part( 'lib/gallery' );
+//get_template_part( 'lib/post-types' );
+//get_template_part( 'lib/meta-boxes' );
+//get_template_part( 'lib/theme-options' );
+get_template_part( 'lib/custom-nav' );
 
 add_action( 'init', 'cmb_initialize_cmb_meta_boxes', 9999 );
 function cmb_initialize_cmb_meta_boxes() {
