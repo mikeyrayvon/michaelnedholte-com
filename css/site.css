@@ -798,8 +798,6 @@ img {
 #breadcrumbs {
   display: inline-block;
   opacity: 1;
-  -webkit-transition: opacity 0.5s;
-          transition: opacity 0.5s;
 }
 #breadcrumbs.hide {
   opacity: 0;
