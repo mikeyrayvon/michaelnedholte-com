@@ -49,14 +49,14 @@ function get_custom_nav(){
 					if(count($third_level_categories)){
 						$third_level_div[$second_level_category->term_id]  = "<ul class='third-level menu nav-hide' data-parent='" . $second_level_category->term_id . "'>";
 						foreach ( $third_level_categories as $third_level_category ) {
-							$third_level_div[$second_level_category->term_id] .= '<li class="menu-item"><a href="' . get_term_link( $third_level_category->slug, $third_level_category->taxonomy ) . '" data-id="' . $third_level_category->term_id . '">' . $third_level_category->name . '</a></li>';
+							$third_level_div[$second_level_category->term_id] .= '<li class="menu-item"><a href="' . get_term_link( $third_level_category->slug, $third_level_category->taxonomy ) . '" class="js-ajax-item js-menu-item" data-id="' . $third_level_category->term_id . '">' . $third_level_category->name . '</a></li>';
 						}
 					//	$third_level_div[$second_level_category->term_id] = trim($third_level_div[$second_level_category->term_id], ' ~'); //trims ' ~ ' from last category listing
 						$third_level_div[$second_level_category->term_id] .= "</ul>";
 					}
 					
 				}
-				$second_level_div[$first_level_category->term_id] .= '<li class="menu-item"><a href="' . get_term_link( $first_level_category->slug, $first_level_category->taxonomy ) . '" class="all" data-id="' . $first_level_category->term_id . '">All</a></li>';
+				$second_level_div[$first_level_category->term_id] .= '<li class="menu-item"><a href="' . get_term_link( $first_level_category->slug, $first_level_category->taxonomy ) . '" class="js-ajax-item js-menu-item" data-id="' . $first_level_category->term_id . '">All</a></li>';
 				$second_level_div[$first_level_category->term_id] .= "</ul>";
 			}
 		}
