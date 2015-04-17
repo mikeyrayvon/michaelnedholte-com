@@ -2,6 +2,13 @@
 get_header();
 ?>
 
+<!-- main content -->
+
+<main id="main-content">
+
+  <!-- main posts loop -->
+  <section id="posts">
+
 <?php
 if( have_posts() ) {
   while( have_posts() ) {
@@ -10,7 +17,9 @@ if( have_posts() ) {
 
     <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
-      <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+      <h1><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h1>
+
+      <span class="date"><?php echo get_the_date(); ?></span>
 
       <?php the_content(); ?>
 
@@ -23,6 +32,15 @@ if( have_posts() ) {
     <article class="u-alert"><?php _e('Sorry, no posts matched your criteria :{'); ?></article>
 <?php
 } ?>
+
+  <!-- end posts -->
+  </section>
+
+  <?php get_template_part('partials/pagination'); ?>
+
+<!-- end main-content -->
+
+</main>
 
 <?php
 get_footer();
