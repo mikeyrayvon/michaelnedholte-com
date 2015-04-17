@@ -137,6 +137,7 @@ var Router = {
 if (jQuery.browser.mobile === false) {
 	$('body').on('click', '.js-ajax-item', function(e, data) {
 		href = $(this).attr('href');
+		var $thisParent = $(this).parent();
 
 		if ($(this).hasClass('all')) {
 			$('.second-level.parent').removeClass('nav-selected');
@@ -149,15 +150,28 @@ if (jQuery.browser.mobile === false) {
 			$(this).addClass('nav-selected');
 			$header.stop().animate({height: initHeight}, animateSpeed);
 			$('.crumb').removeClass('current');
+		}
+
+		if ($(this).hasClass('first-level')) {
+			if ($thisParent.hasClass('menu-item-object-page')) {
+				$('#breadcrumbs').html(' ');
+			} else {
+				$('#breadcrumbs').html( $(this).text() );
+			}
+		} else {
+
 			$('.nav-selected').addClass('current');
 
 			crumbs = $('.first-level.current').text() + '&rarr;' + $('.second-level.current').text();
+
 			if ($('.third-level.current').length) {
 				crumbs += '&rarr;' + $('.third-level.current').text();
 			}
+
 			$('#breadcrumbs').html(crumbs);
-			crumbs = '';
 		}
+
+		crumbs = '';
 	 
 		Router.loadHref(href);
 
