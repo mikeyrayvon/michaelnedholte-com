@@ -40,6 +40,6 @@
   <!-- start content -->
   <header id="header">
     <h1 id="site-title"><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
-    <div id="breadcrumbs"></div>
+    <div id="breadcrumbs" class="hide"></div>
     <?php get_custom_nav(); ?>
   </header>
