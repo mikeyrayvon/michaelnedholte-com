@@ -45,6 +45,14 @@ function prefix_remove_menu_item_whitespace( $items ) {
     return preg_replace( '/>(\s|\n|\r)+</', '><', $items );
 }
 
+function wpa_category_nav_class( $classes, $item ){
+    if( 'category' == $item->object ){
+        $classes[] = 'menu-category-' . $item->object_id;
+    }
+    return $classes;
+}
+add_filter( 'nav_menu_css_class', 'wpa_category_nav_class', 10, 2 );
+
 
 //get_template_part( 'lib/gallery' );
 //get_template_part( 'lib/post-types' );

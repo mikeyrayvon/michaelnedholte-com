@@ -5,6 +5,16 @@
 
   <?php get_template_part('partials/scripts'); ?>
 
+  <script type="text/javascript">
+  <?php 
+  $newsCatObj = get_category_by_slug( 'news' );
+  $newsCatId = $newsCatObj->term_id;
+  $newsCatCount = $newsCatObj->count;
+  if ($newsCatCount < 1) { ?>
+    $('.menu-category-<?php echo $newsCatId; ?>').remove();
+  <?php } ?>
+  </script>
+
   <script type="application/ld+json">
     {
       "@context": "http://schema.org",

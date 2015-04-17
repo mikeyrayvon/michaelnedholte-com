@@ -10,6 +10,9 @@
 /////////////////////////////
 function get_custom_nav(){
 	
+	$newsCatObj = get_category_by_slug( 'news' );
+	$newsCatId = $newsCatObj->term_id;
+
 	$options = array(
 		'menu'		=> 'pages', 
 		'echo'		=> false,
@@ -18,10 +21,6 @@ function get_custom_nav(){
 	);
 	$pages = wp_nav_menu($options);
 	$pages = preg_replace('/<a/', '<a class="js-ajax-item first-level crumb"', $pages);
-
-
-	$newsCatObj = get_category_by_slug( 'news' );
-	$newsCatId = $newsCatObj->term_id;
 
 	$first_level_categories = get_terms( 'category', array(
 		'orderby'    => 'id',
