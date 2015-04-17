@@ -14,6 +14,11 @@ var
 	$crumb = $('.crumb'),
 	openToggle = '&#9776;',
 	closeToggle = '&#x2715;',
+	anchorHref,
+	anchorId,
+	anchorOffset,
+	anchorTop,
+	anchorPos,
 	parentId,
 	href,
 	posts,
@@ -150,7 +155,20 @@ $('.third-level.crumb').on('click', function(data) {
 });
 
 
+//ANCHORS
+$('body').on('click', 'a[href*=#]', function() {
 
+  anchorHref = $(this).attr('href');
+  anchorId = anchorHref.substring(1);
+  console.log(anchorId);
+  anchorOffset = $('[name="'+anchorId+'"]').offset();
+  anchorTop = anchorOffset.top;
+  anchorPos = anchorTop-initHeight-20;
+
+  $('html, body').animate({ scrollTop: anchorPos }, animateSpeed);
+
+  return false;
+});
 
 
 //TRIGGER
