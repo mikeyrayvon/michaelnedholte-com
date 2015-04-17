@@ -109,15 +109,20 @@ img
     
 #breadcrumbs
   display: inline-block
+  opacity: 1
+  transition: opacity .5s
+  &.hide 
+    opacity: 0
   
 .menu
   display: block 
+  opacity: 1
+  transition: opacity 1s
 
 .menu-item
   display: inline-block
   cursor: pointer
-  opacity: 1
-  transition: opacity 1s
+  
     
 .first-level .menu-item:after
   content: '\00a0 ,\00a0'
