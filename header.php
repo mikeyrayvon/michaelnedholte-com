@@ -25,8 +25,6 @@
         nope: "<?php bloginfo('stylesheet_directory'); ?>/js/polyfills/mediaqueries.js"
       }
     ]);
-
-    var blogName = '<?php bloginfo('name'); ?>';
   </script>
 
   <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
@@ -40,6 +38,7 @@
   <!-- start content -->
   <header id="header">
     <h1 id="site-title"><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
-    <div id="breadcrumbs" class="hide"></div>
+    <span id="toggle">&#9776;</span>
+    <div id="breadcrumbs"></div>
     <?php get_custom_nav(); ?>
   </header>
