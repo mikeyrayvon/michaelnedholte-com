@@ -29,7 +29,7 @@ if( have_posts() ) {
 ?> 
 
     <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
-      <h2><a href="<?php the_permalink() ?>" class="js-ajax-item"><?php the_title(); ?></a></h2>
+      <h2><a href="<?php the_permalink() ?>" class="js-ajax-item news-item"><?php the_title(); ?></a></h2>
       <span class="date"><?php echo get_the_date('d F, Y'); ?></span>
       <?php the_content(); ?>
     </article>
