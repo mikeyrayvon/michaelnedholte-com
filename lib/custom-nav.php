@@ -31,7 +31,7 @@ function get_custom_nav(){
 	if ( count($first_level_categories) ){
 		$first_level_div = "<ul class='first-level menu'>";
 		foreach ( $first_level_categories as $first_level_category ) {
-			$first_level_div .= "<li class='menu-item'><a class='first-level-parent' data-id='" . $first_level_category->term_id . "'>" . $first_level_category->name . "</a></li>";
+			$first_level_div .= "<li class='menu-item'><a class='first-level parent' data-id='" . $first_level_category->term_id . "'>" . $first_level_category->name . "</a></li>";
 			$second_level_categories = get_terms( 'category', array(
 				'orderby'    => 'id',
 				'hide_empty' => 0,
@@ -40,7 +40,7 @@ function get_custom_nav(){
 			if(count($second_level_categories)){
 				$second_level_div[$first_level_category->term_id] = "<ul class='second-level menu nav-hide' data-parent='" . $first_level_category->term_id . "'>";
 				foreach ( $second_level_categories as $second_level_category ) {
-					$second_level_div[$first_level_category->term_id] .= "<li class='menu-item'><a data-id='" . $second_level_category->term_id . "'>" . $second_level_category->name . "</a></li>";
+					$second_level_div[$first_level_category->term_id] .= "<li class='menu-item'><a class='second-level parent' data-id='" . $second_level_category->term_id . "'>" . $second_level_category->name . "</a></li>";
 					$third_level_categories = get_terms( 'category', array(
 						'orderby'    => 'id',
 						'hide_empty' => 0,
@@ -56,7 +56,7 @@ function get_custom_nav(){
 					}
 					
 				}
-				$second_level_div[$first_level_category->term_id] .= '<li class="menu-item"><a class="all" data-id="' . $first_level_category->term_id . '">All</a></li>';
+				$second_level_div[$first_level_category->term_id] .= '<li class="menu-item"><a href="' . get_term_link( $first_level_category->slug, $first_level_category->taxonomy ) . '" class="all" data-id="' . $first_level_category->term_id . '">All</a></li>';
 				$second_level_div[$first_level_category->term_id] .= "</ul>";
 			}
 		}
