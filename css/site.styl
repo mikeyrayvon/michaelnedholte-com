@@ -16,7 +16,7 @@ $margin-basic = ($gutter*2)
 $margin-large = ($gutter*4)
 
 $font-size-basic = 18px
-$font-leading-basic = 1.35em
+$font-leading-basic = 1.4em
 $font-tracking-basic = 0.001em
 
 $color-black-soft = rgb(14,14,14)
@@ -24,8 +24,11 @@ $color-white-soft = rgb(253,253,253)
 
 // TYPOGRAPHY
 
-$font-ag-lRg = 'akzidenz-grotesk_bq_lightRg','Helvetica Neue',helvetica,arial,sans-serif
+$font-ag-lRg = 'berthold_akzidenz_grotesk_bRg','Helvetica Neue',helvetica,arial,sans-serif
 $font-miller-Rg = 'miller_textregular',georgia,times,serif
+$font-miller-It = 'miller_textitalic',georgia,times,serif
+$font-miller-Bld = 'miller_textbold',georgia,times,serif
+$font-miller-BldIt = 'miller_textbold_italic',georgia,times,serif
 
 body
   font-family: $font-miller-Rg
@@ -49,6 +52,18 @@ h3
 p
   margin-bottom: 1em
   font-family: $font-miller-Rg
+  
+em 
+  font-family: $font-miller-It
+  font-style: italic
+  
+strong 
+  font-family: $font-miller-Bld
+  font-weight: 600
+  
+em strong, strong em 
+  font-family: $font-miller-BldIt
+
 
 
 // LINKS
@@ -159,11 +174,14 @@ img
     font-size: 1.5em
     line-height: 1.3em
     margin-bottom: 2em
+    font-family: $font-ag-lRg
   .date
     display: block
     margin-bottom: 1em
     padding-bottom: 1em
     border-bottom: 1px solid $color-black-soft
+    font-family: $font-ag-lRg
+    
   
 
 

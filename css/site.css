@@ -686,8 +686,29 @@ ul.u-inline-list li {
 }
 @font-face {
   font-family: 'miller_textregular';
-  src: url("fonts/miller-text-webfont.eot");
-  src: url("fonts/miller-text-webfont.eot?#iefix") format('embedded-opentype'), url("fonts/miller-text-webfont.woff") format('woff'), url("fonts/miller-text-webfont.ttf") format('truetype'), url("fonts/miller-text-webfont.svg#miller_textregular") format('svg');
+  src: url("miller-text-webfont.eot");
+  src: url("miller-text-webfont.eot?#iefix") format('embedded-opentype'), url("miller-text-webfont.woff2") format('woff2'), url("miller-text-webfont.woff") format('woff'), url("miller-text-webfont.ttf") format('truetype'), url("miller-text-webfont.svg#miller_textregular") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'miller_textbold';
+  src: url("miller-textbold-webfont.eot");
+  src: url("miller-textbold-webfont.eot?#iefix") format('embedded-opentype'), url("miller-textbold-webfont.woff2") format('woff2'), url("miller-textbold-webfont.woff") format('woff'), url("miller-textbold-webfont.ttf") format('truetype'), url("miller-textbold-webfont.svg#miller_textbold") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'miller_textbold_italic';
+  src: url("miller-textbolditalic-webfont.eot");
+  src: url("miller-textbolditalic-webfont.eot?#iefix") format('embedded-opentype'), url("miller-textbolditalic-webfont.woff2") format('woff2'), url("miller-textbolditalic-webfont.woff") format('woff'), url("miller-textbolditalic-webfont.ttf") format('truetype'), url("miller-textbolditalic-webfont.svg#miller_textbold_italic") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'miller_textitalic';
+  src: url("miller-textitalic-webfont.eot");
+  src: url("miller-textitalic-webfont.eot?#iefix") format('embedded-opentype'), url("miller-textitalic-webfont.woff2") format('woff2'), url("miller-textitalic-webfont.woff") format('woff'), url("miller-textitalic-webfont.ttf") format('truetype'), url("miller-textitalic-webfont.svg#miller_textitalic") format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -698,13 +719,6 @@ ul.u-inline-list li {
   font-weight: normal;
   font-style: normal;
 }
-@font-face {
-  font-family: 'akzidenz-grotesk_bq_lightRg';
-  src: url("fonts/akzidenzgrotesk-light-webfont.eot");
-  src: url("fonts/akzidenzgrotesk-light-webfont.eot?#iefix") format('embedded-opentype'), url("fonts/akzidenzgrotesk-light-webfont.woff") format('woff'), url("fonts/akzidenzgrotesk-light-webfont.ttf") format('truetype'), url("fonts/akzidenzgrotesk-light-webfont.svg#akzidenz-grotesk_bq_lightRg") format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
 .container {
   margin: 0 auto;
   width: 1100px;
@@ -712,7 +726,7 @@ ul.u-inline-list li {
 body {
   font-family: 'miller_textregular', georgia, times, serif;
   font-size: 18px;
-  line-height: 1.35em;
+  line-height: 1.4em;
   letter-spacing: 0.001em;
 }
 h1 {
@@ -721,7 +735,7 @@ h1 {
 }
 h2 {
   font-size: 1.3em;
-  font-family: 'akzidenz-grotesk_bq_lightRg', 'Helvetica Neue', helvetica, arial, sans-serif;
+  font-family: 'berthold_akzidenz_grotesk_bRg', 'Helvetica Neue', helvetica, arial, sans-serif;
   font-weight: normal;
 }
 h3 {
@@ -731,6 +745,18 @@ h3 {
 p {
   margin-bottom: 1em;
   font-family: 'miller_textregular', georgia, times, serif;
+}
+em {
+  font-family: 'miller_textitalic', georgia, times, serif;
+  font-style: italic;
+}
+strong {
+  font-family: 'miller_textbold', georgia, times, serif;
+  font-weight: 600;
+}
+em strong,
+strong em {
+  font-family: 'miller_textbold_italic', georgia, times, serif;
 }
 a,
 a:active,
@@ -825,7 +851,7 @@ img {
 .archive .post span {
   display: inline-block;
   font-size: 1.3em;
-  font-family: 'akzidenz-grotesk_bq_lightRg', 'Helvetica Neue', helvetica, arial, sans-serif;
+  font-family: 'berthold_akzidenz_grotesk_bRg', 'Helvetica Neue', helvetica, arial, sans-serif;
 }
 .archive .post span {
   float: right;
@@ -842,12 +868,14 @@ img {
   font-size: 1.5em;
   line-height: 1.3em;
   margin-bottom: 2em;
+  font-family: 'berthold_akzidenz_grotesk_bRg', 'Helvetica Neue', helvetica, arial, sans-serif;
 }
 .post .date {
   display: block;
   margin-bottom: 1em;
   padding-bottom: 1em;
   border-bottom: 1px solid #0e0e0e;
+  font-family: 'berthold_akzidenz_grotesk_bRg', 'Helvetica Neue', helvetica, arial, sans-serif;
 }
 #pagination {
   width: 100%;
