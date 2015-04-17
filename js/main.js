@@ -53,6 +53,10 @@ var closeNav = function() {
 
 	$header.stop().animate({height: initHeight}, animateSpeed, function() {
 
+		$crumb.removeClass('nav-selected');
+
+		$('.current').addClass('nav-selected');
+
 		// open parent ul elements
 		$closestMenu = $('.current').closest('ul');
 		$('.second-level.menu, .third-level.menu').not($closestMenu).addClass('nav-hide');
@@ -121,7 +125,7 @@ var Router = {
 // NAV
 $('.first-level.crumb').on('click', function(data) {
 
-	$('.first-level.crumb, .second-level.crumb').removeClass('nav-selected');
+	$('.first-level.crumb, .second-level.crumb, .third-level.crumb').removeClass('nav-selected');
 	$(this).addClass('nav-selected');
 
 	$('.second-level.menu, .third-level.menu').addClass('nav-hide');
@@ -179,7 +183,8 @@ $('body').on('click', '.js-ajax-item', function(data) {
 
 	$crumb.removeClass('current');
 	$('.nav-selected').addClass('current');
-	$(this).addClass('nav-selected').addClass('current');
+	$(this).addClass('current');
+	$(this).addClass('nav-selected');
 
 	if ($(this).hasClass('second-level')) {
 		$('.third-level.crumb').removeClass('nav-selected').removeClass('current');
