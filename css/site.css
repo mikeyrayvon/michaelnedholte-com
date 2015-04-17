@@ -790,24 +790,23 @@ img {
   font-size: 1.5em;
   line-height: 1.2em;
   overflow: hidden;
+  -webkit-backface-visibility: hidden;
 }
 #site-title {
   display: inline-block;
-  -webkit-backface-visibility: hidden;
 }
 #breadcrumbs {
   margin-left: 8px;
   display: inline-block;
-  opacity: 1;
-}
-#breadcrumbs.hide {
-  opacity: 0;
-}
-.menu {
-  display: block;
-  opacity: 1;
   -webkit-transition: opacity 1s;
           transition: opacity 1s;
+  opacity: 1;
+}
+.hide {
+  opacity: 0 !important;
+}
+.nav-hide {
+  display: none;
 }
 .menu-item {
   display: inline-block;
@@ -827,16 +826,20 @@ img {
 .third-level .menu-item:last-child:after {
   content: '';
 }
-.nav-hide {
-  display: none;
-  opacity: 0;
-}
 .nav-selected {
   color: #00f !important;
 }
 #site-title,
 .menu {
   padding-bottom: 8px;
+}
+#toggle {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  -webkit-transition: opacity 1s;
+          transition: opacity 1s;
+  display: none;
 }
 #main-content {
   padding: 32px 0 128px;
@@ -897,6 +900,20 @@ article.page .date {
   border-bottom: 1px solid #0e0e0e;
   font-family: 'berthold_akzidenz_grotesk_bRg', 'Helvetica Neue', helvetica, arial, sans-serif;
 }
+article.post p a,
+article.page p a,
+article.post p a:active,
+article.page p a:active,
+article.post p a:visited,
+article.page p a:visited {
+  color: #00f;
+}
+article.category-news h2 {
+  margin-bottom: 8px;
+}
+article.category-news .date {
+  border-bottom: 0;
+}
 #pagination {
   width: 100%;
 }
@@ -914,8 +931,37 @@ article.page .date {
 #footer {
   width: 100%;
 }
-/*
-@media screen and (max-width: ($col * $cols)+($gutter * $cols))
-  html
-    width: 100%
-*/
+@media screen and (max-width: 1250px) {
+  #posts.archive article.post span {
+    display: none;
+  }
+}
+@media screen and (max-width: 900px) {
+  #breadcrumbs {
+    display: none;
+  }
+}
+@media screen and (max-width: 650px) {
+  #main-content {
+    width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  article.post,
+  article.page {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 480px) {
+  body {
+    font-size: 12px;
+  }
+  #header {
+    font-size: 1.7em;
+  }
+}
