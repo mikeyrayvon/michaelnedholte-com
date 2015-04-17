@@ -39,6 +39,7 @@
   <header id="header">
     <h1 id="site-title"><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
     <div id="breadcrumbs">
+      &rarr;
     </div>
     <?php get_custom_nav(); ?>
   </header>
