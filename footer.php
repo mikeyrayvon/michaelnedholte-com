@@ -20,6 +20,10 @@
       "@context": "http://schema.org",
       "@type": "Person",
       "url": "http://michaelnedholte.com/",
+      "image": "<?php bloginfo('stylesheet_directory'); ?>/img/photo.jpg",
+      "givenName": "Michael",
+      "additionalName": "Ned",
+      "familyName": "Holte"
     }
   </script>
 
