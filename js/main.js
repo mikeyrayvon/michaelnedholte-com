@@ -181,6 +181,8 @@ $('body').on('click', '.js-ajax-item', function(data) {
 	href = $(this).attr('href');
 	$thisParent = $(this).parent();
 
+	closeNav();
+
 	$crumb.removeClass('current');
 	$('.nav-selected').addClass('current');
 	$(this).addClass('current');
